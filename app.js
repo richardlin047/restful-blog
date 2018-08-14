@@ -6,7 +6,9 @@ var express = require("express"),
     app = express();
    
 // APP CONFIG   
-mongoose.connect("mongodb://localhost/restful_blog_app");
+var databaseurl = process.env.DATABASEURL || "mongodb://localhost/restful_blog_app"
+mongoose.connect(databaseurl);
+
 //first time connecting will create it, second time will connect
 app.set("view engine", "ejs"); 
 //need to install, this allows the ejs files to be loaded without .ejs
